@@ -1,0 +1,20 @@
+main {
+  width: calc(100% - 200px);
+  display: flex;
+  justify-content: center;
+  margin-left: 200px;
+
+  .button-wrap {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 50px;
+  }
+
+  .table-wrap {
+    max-height: 600px;
+    overflow: scroll;
+  }
+  h1 {
+    margin: 20px 0;
+  }
+}

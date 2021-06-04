@@ -1,17 +1,47 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { Switch, Route, Router } from 'react-router-dom';
+import { createStore, compose, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import createSagaMiddleware from 'redux-saga';
+
+import './styles/index.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import history from './utils/history';
+
+import rootSaga from './redux/sagas/rootSaga';
+import rootReducer from './redux/reducers/rootReducer';
+
+
+
+import Header from './containers/Header';
+import Sidebar from './containers/Sidebar';
+import App from './containers/App';
+
+
+const sagaMiddleware = createSagaMiddleware();
+
+const store = createStore(
+    rootReducer,
+    compose(applyMiddleware(sagaMiddleware), window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f)
+);
+
+sagaMiddleware.run(rootSaga);
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+            <Provider store={store}>
+
+    <Router history={history}>
+    <Route path="*" component={Header} />
+    <Route path="*" component={Sidebar} />
+    <Switch>
+      <Route path="/country/:slug" component={App}/>
+    </Switch>
+    </Router>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
