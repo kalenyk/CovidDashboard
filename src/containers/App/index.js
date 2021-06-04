@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 import { getCountryData } from '../../redux/actions';
 
-import Button from 'react-bootstrap/Button';
 
 import Table from '../../components/CountryContent/Table';
 import Charts from '../../components/CountryContent/Charts';
@@ -28,9 +28,9 @@ const App = () => {
             <div className="button-wrap">
                 <Button onClick={toggleView}>Toggle View</Button>
             </div>
-            {isShowTable ? <Table/> : <Charts/>}
+            {isShowTable ? <Table /> : <Charts />}
         </main>
-    )
-}
+    );
+};
 
 export default App;

@@ -12,12 +12,12 @@ const Sidebar = () => {
 
     const [filterValue, setFilterValue] = useState('');
         
-    const setInputValue = useCallback((e) => setFilterValue(e.target.value),[])
+    const setInputValue = useCallback((e) => setFilterValue(e.target.value),[]);
     const resetFilter = useCallback(() => setFilterValue(''), []);
 
     const filteredCountries = useMemo(() => {
-        if(!filterValue) return countriesList;
-        return countriesList.filter(item => item.Country.toLowerCase().includes(filterValue.toLowerCase()))
+        if (!filterValue) return countriesList;
+        return countriesList.filter(item => item.Country.toLowerCase().includes(filterValue.toLowerCase()));
     }, [filterValue, countriesList]);
 
     useEffect(() => {
@@ -38,7 +38,8 @@ const Sidebar = () => {
                 <Link
                     to={`/country/${item.Slug}`}
                     key={item.Slug}
-                >{item.Country}</Link>
+                >{item.Country}
+                </Link>
             ))}
         </aside>
     );

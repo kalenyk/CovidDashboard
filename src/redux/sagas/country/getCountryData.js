@@ -7,9 +7,9 @@ export function *getCountryDataSaga ({ slug }) {
     try {
         const today = new Date().toISOString();
 
-        //Using ANOTHER API ROUTE
-        //https://api.covid19api.com/country/south-africa/status/confirmed?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z
-        //doesn't include enough data
+        // Using ANOTHER API ROUTE
+        // https://api.covid19api.com/country/south-africa/status/confirmed?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z
+        // doesn't include enough data
         const response = yield call(
             fetch,
             `https://api.covid19api.com/dayone/country/${slug}?from=2020-01-01T00:00:00Z&to=${today}`
@@ -18,9 +18,7 @@ export function *getCountryDataSaga ({ slug }) {
         const payload = yield response.json();
 
         const sorted = payload
-            .sort((a,b) => {
-                return new Date(b.Date) - new Date(a.Date);
-            })
+            .sort((a,b) => new Date(b.Date) - new Date(a.Date))
             .map(item => ({
                 ...item,
                 Date: moment(item.Date).format('DD/MM/YYYY'),
@@ -37,15 +35,15 @@ export function *getCountryDataSaga ({ slug }) {
                 ...item,
                 NewDeaths: NewDeaths > 0 ? NewDeaths : 0,
                 NewCases: NewCases > 0 ? NewCases : 0
-            })
-        })
+            });
+        });
         yield put(a.getCountryDataSuccess(({ 
             payload: { [slug]: temp }
         })));
 
     }
     catch (error) {
-       console.log('error',error);
-       yield put(a.getCountryDataFailure())
+        console.log('error',error);
+        yield put(a.getCountryDataFailure());
     }
 }

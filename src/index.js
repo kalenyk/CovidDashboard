@@ -5,8 +5,8 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 
-import './styles/index.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/index.scss';
 
 import history from './utils/history';
 
@@ -31,17 +31,17 @@ sagaMiddleware.run(rootSaga);
 
 
 ReactDOM.render(
-  <React.StrictMode>
-            <Provider store={store}>
+    <React.StrictMode>
+        <Provider store={store}>
 
-    <Router history={history}>
-    <Route path="*" component={Header} />
-    <Route path="*" component={Sidebar} />
-    <Switch>
-      <Route path="/country/:slug" component={App}/>
-    </Switch>
-    </Router>
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
+            <Router history={history}>
+                <Route path="*" component={Header} />
+                <Route path="*" component={Sidebar} />
+                <Switch>
+                    <Route path="/country/:slug" component={App} />
+                </Switch>
+            </Router>
+        </Provider>
+    </React.StrictMode>,
+    document.getElementById('root')
 );

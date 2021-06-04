@@ -16,7 +16,7 @@ export function *getCountriesListSaga () {
 
     }
     catch (error) {
-       console.log('error',error);
-       yield put(a.getCountriesListFailure())
+        console.log('error',error);
+        yield put(a.getCountriesListFailure());
     }
 }

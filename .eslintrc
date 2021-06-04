@@ -1,0 +1,141 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "eslint-config-prettier"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 11,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": true,
+      "jsx": true,
+      "forOf": true,
+      "blockBindings": true,
+      "arrowFunctions": true,
+      "classes": true,
+      "defaultParams": true,
+      "destructuring": true,
+      "generators": true,
+      "restParams": true,
+      "spread": true,
+      "superInFunctions": true,
+      "templateStrings": true,
+      "experimentalObjectRestSpread": true,
+      "experimentalDecorators": true
+    }
+  },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "jsx-a11y",
+    "import"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "jest": true
+  },
+  "rules": {
+    "prefer-const": "warn",
+    "no-var": "warn",
+    "no-const-assign": "warn",
+    "object-shorthand": "warn",
+    "no-loop-func": "warn",
+    "prefer-rest-params": "warn",
+    "space-before-function-paren": "warn",
+    "space-before-blocks": "warn",
+    "prefer-spread": "warn",
+    "no-param-reassign": "warn",
+    "prefer-arrow-callback": "warn",
+    "arrow-spacing": "warn",
+    // 'arrow-parens': 'warn',
+    "arrow-body-style": "warn",
+    "no-dupe-class-members": "warn",
+    "no-duplicate-imports": "warn",
+    "no-iterator": "warn",
+    "no-unused-vars": "warn",
+    "no-restricted-syntax": "warn",
+    "generator-star-spacing": "warn",
+    "dot-notation": "warn",
+    "no-restricted-properties": "warn",
+    // "no-plusplus": "warn",
+    "no-unneeded-ternary": "warn",
+    "spaced-comment": "warn",
+    "keyword-spacing": "warn",
+    "space-infix-ops": "warn",
+    "no-unreachable": "error",
+    "max-len": ["error", { "code": 130 }],
+    "brace-style": ["error", "stroustrup", { "allowSingleLine": true }],
+    "object-curly-spacing": ["error", "always"],
+    "import/imports-first": ["error", "absolute-first"],
+    "semi": [
+      "warn",
+      "always",
+      {
+        "omitLastInOneLineBlock": true
+      }
+    ],
+    // "camelcase": "warn",
+    // 'new-cap': 'warn',
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "never",
+        "objects": "only-multiline",
+        "functions": "never",
+        "imports": "never",
+        "exports": "never"
+      }
+    ],
+        "exports": 0,
+        "imports": 0,
+    "indent": [
+      "warn",
+      4,
+      {
+        "VariableDeclarator": {
+          "var": 2,
+          "let": 2,
+          "const": 3
+        },
+        "SwitchCase": 1
+      }
+    ],
+    "jsx-quotes": ["warn", "prefer-double"],
+    "quotes": ["warn", "single"],
+    "quote-props": ["warn", "as-needed"],
+    "no-multi-spaces": "warn",
+    "react/boolean-prop-naming": "warn",
+    "react/prop-types": [
+      "warn",
+      {
+        "ignore": [
+          "className",
+          "children",
+          "dispatch",
+          "location",
+          "match",
+          "history",
+          "component",
+          "render"
+        ]
+      }
+    ],
+    "react/jsx-closing-bracket-location": "warn",
+    "react/jsx-closing-tag-location": "warn",
+    "react/jsx-tag-spacing": "warn",
+    "react/jsx-curly-spacing": "warn",
+    "react/jsx-boolean-value": "warn",
+    "react/jsx-wrap-multilines": "warn",
+    "react/self-closing-comp": "warn",
+    "react/jsx-uses-vars": "warn"
+  }
+}
